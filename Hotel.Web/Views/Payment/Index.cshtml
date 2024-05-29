@@ -1,0 +1,26 @@
+﻿@model Hotel.Web.Models.PaymentModels
+
+@{
+    ViewBag.Title = "Payment";
+}
+
+<h2>Payment</h2>
+
+@using (Html.BeginForm("ProcessPayment", "Payment", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(m => m.RoomType)
+        @Html.DropDownListFor(m => m.RoomType, new SelectList(Enum.GetValues(typeof(Hotel.Domain.Enums.RoomType))))
+    </div>
+    <div>
+        @Html.LabelFor(m => m.NumberOfDays)
+        @Html.TextBoxFor(m => m.NumberOfDays)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Token)
+        @Html.TextBoxFor(m => m.Token)
+    </div>
+    <div>
+        <button type="submit">Pay</button>
+    </div>
+}

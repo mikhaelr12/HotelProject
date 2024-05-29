@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@using Hotel.Domain.Enums
+@model Hotel.Web.Models.UserBooking
+<section class="site-hero inner-page overlay" style="background-image: url(images/hero_4.jpg)" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+            <div class="col-md-10 text-center" data-aos="fade">
+                <h1 class="heading mb-3">Reservation Form</h1>
+                <ul class="custom-breadcrumbs mb-4">
+                    <li><a href="index.html">Home</a></li>
+                    <li>&bullet;</li>
+                    <li>Reservation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END section -->
+@if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.SuccessMessage
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.ErrorMessage
+    </div>
+}
+<section class="section contact-section" id="next">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
+
+                @using (Html.BeginForm("Index", "Reservation", FormMethod.Post, new { id = "reservationForm" }))
+                {
+                    <form action="#" method="post" class="bg-white p-md-5 p-4 mb-5 border">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label class="text-black font-weight-bold" for="name">Name</label>
+                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", required = "required" })
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="text-black font-weight-bold" for="email">Email</label>
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", required = "required" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label class="text-black font-weight-bold" for="checkin_date">Date Check In</label>
+                                @Html.TextBoxFor(model => model.CheckIn, new { @class = "form-control", type = "date", onchange = "updateCheckoutDate();" })
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="text-black font-weight-bold" for="checkout_date">Date Check Out</label>
+                                @Html.TextBoxFor(model => model.CheckOut, new { @class = "form-control", type = "date", onchange = "showPrice();" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="roomType" class="font-weight-bold text-black">Room Type</label>
+                                <div class="field-icon-wrap">
+                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                    @Html.DropDownListFor(model => model.RoomType, Enum.GetValues(typeof(Hotel.Domain.Enums.RoomType)).Cast<Hotel.Domain.Enums.RoomType>().Select(roomType =>
+                                            new SelectListItem
+                                            {
+                                                Text = roomType.ToString(),
+                                                Value = ((int)roomType).ToString()
+                                            }),
+                                        new { @class = "form-control", onchange = "fetchBookedDates(this.value); showPrice();" })
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" onclick="this.disabled=true;this.form.submit();">Submit</button>
+
+                        </div>
+                    </form>
+                }
+
+            </div>
+            <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
+                <div class="row">
+                    <div class="col-md-10 ml-auto contact-info">
+                        <p><span class="d-block">Address:</span> <span class="text-black"> Playa Matapalo, Guanacaste Province,Costa Rica</span></p>
+                        <p><span class="d-block">Phone:</span> <span class="text-black"> +(506) 2681 2300</span></p>
+                        <p><span class="d-block">Email:</span> <span class="text-black"> celestialHotel@domain.com</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-image overlay" style="background-image: url('images/hero_4.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+        </div>
+    </div>
+</section>

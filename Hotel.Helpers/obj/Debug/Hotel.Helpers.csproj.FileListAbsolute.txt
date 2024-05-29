@@ -1,0 +1,6 @@
+C:\Users\rusum\source\repos\HotelProject\Hotel.Helpers\bin\Debug\Hotel.Helpers.dll
+C:\Users\rusum\source\repos\HotelProject\Hotel.Helpers\bin\Debug\Hotel.Helpers.pdb
+C:\Users\rusum\source\repos\HotelProject\Hotel.Helpers\obj\Debug\Hotel.Helpers.csproj.AssemblyReference.cache
+C:\Users\rusum\source\repos\HotelProject\Hotel.Helpers\obj\Debug\Hotel.Helpers.csproj.CoreCompileInputs.cache
+C:\Users\rusum\source\repos\HotelProject\Hotel.Helpers\obj\Debug\Hotel.Helpers.dll
+C:\Users\rusum\source\repos\HotelProject\Hotel.Helpers\obj\Debug\Hotel.Helpers.pdb

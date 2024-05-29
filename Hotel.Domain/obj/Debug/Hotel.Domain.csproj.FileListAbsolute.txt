@@ -1,0 +1,9 @@
+C:\Users\rusum\source\repos\HotelProject\Hotel.Domain\bin\Debug\Hotel.Domain.dll
+C:\Users\rusum\source\repos\HotelProject\Hotel.Domain\bin\Debug\Hotel.Domain.pdb
+C:\Users\rusum\source\repos\HotelProject\Hotel.Domain\bin\Debug\Hotel.Helpers.dll
+C:\Users\rusum\source\repos\HotelProject\Hotel.Domain\bin\Debug\Hotel.Helpers.pdb
+C:\Users\rusum\source\repos\HotelProject\Hotel.Domain\obj\Debug\Hotel.Domain.csproj.AssemblyReference.cache
+C:\Users\rusum\source\repos\HotelProject\Hotel.Domain\obj\Debug\Hotel.Domain.csproj.CoreCompileInputs.cache
+C:\Users\rusum\source\repos\HotelProject\Hotel.Domain\obj\Debug\Hotel.Domain.csproj.CopyComplete
+C:\Users\rusum\source\repos\HotelProject\Hotel.Domain\obj\Debug\Hotel.Domain.dll
+C:\Users\rusum\source\repos\HotelProject\Hotel.Domain\obj\Debug\Hotel.Domain.pdb

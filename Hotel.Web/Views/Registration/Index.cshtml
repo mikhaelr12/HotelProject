@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutLog.cshtml";
+}
+
+@model Hotel.Web.Models.UserRegister
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #0078d4;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #005a9e;
+            }
+
+        .register-link {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #0078d4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        @using (Html.BeginForm("Index", "Registration", FormMethod.Post))
+        {
+            <label for="UserName">Username:</label>
+            @Html.TextBoxFor(model => model.Username, new { @class = "form-control", required = "required" })
+
+            <label for="Password">Password:</label>
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control", required = "required" })
+            <label for="Email">E-mail:</label>
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", required = "required" })
+
+            <div class="form-buttons">
+                <button type="submit">Sign up</button>
+            </div>
+
+        }
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div>
+                <p style="color: red;">Error in input data</p>
+            </div>
+        }
+    </div>
+</body>
+</html>

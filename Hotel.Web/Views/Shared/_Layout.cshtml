@@ -1,0 +1,39 @@
+﻿@using Hotel.Domain.Entities.User
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/bundles/bootstrap.min.css")
+    @Styles.Render("~/bundles/animate.css")
+    @Styles.Render("~/bundles/owl.carousel.min.css")
+    @Styles.Render("~/bundles/aos.css")
+    @Styles.Render("~/bundles/bootstrap-datepicker.css")
+    @Styles.Render("~/bundles/jquery.timepicker.css")
+    @Styles.Render("~/bundles/fancybox.min.css")
+    @Styles.Render("~/bundles/style.css")
+    @Styles.Render("~/bundles/ionicons.css")
+    @Styles.Render("~/bundles/font-awesome.css")
+</head>
+<body>
+<header class="site-header js-site-header">
+    @Html.Partial("_Header")
+</header>
+@RenderBody()
+<footer class="section footer-section">
+    @Html.Partial("_Footer")
+</footer>
+@Scripts.Render("~/bundles/jquery-3.3.1.min")
+@Scripts.Render("~/bundles/jquery-migrate-3.0.1.min")
+@Scripts.Render("~/bundles/popper.min")
+@Scripts.Render("~/bundles/bootstrap.min")
+@Scripts.Render("~/bundles/owl.carousel.min")
+@Scripts.Render("~/bundles/jquery.stellar.min")
+@Scripts.Render("~/bundles/jquery.fancybox.min")
+@Scripts.Render("~/bundles/aos")
+@Scripts.Render("~/bundles/bootstrap-datepicker")
+@Scripts.Render("~/bundles/jquery.timepicker.min")
+@Scripts.Render("~/bundles/main")
+@RenderSection("scripts", required: false)
+</body>
+</html>

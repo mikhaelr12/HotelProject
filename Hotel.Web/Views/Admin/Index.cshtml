@@ -1,0 +1,85 @@
+﻿@using Hotel.Domain.Enums
+@model IEnumerable<Hotel.Web.Models.Users>
+
+@{
+    ViewBag.Title = "Admin Dashboard";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+<style>
+    body {
+        background-color: black;
+        color: white; 
+    }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="">Admin Dashboard</a></div>
+            <div class="col-6 col-lg-8">
+                <div class="site-menu-toggle js-site-menu-toggle" data-aos="fade">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <!-- END menu-toggle -->
+                <div class="site-navbar js-site-navbar">
+                    <nav role="navigation">
+                        <div class="container">
+                            <div class="row full-height align-items-center">
+                                <div class="col-md-6 mx-auto">
+                                    <ul class="list-unstyled menu">
+                                        <li><a href="@Url.Action("Rooms", "Admin")">Rooms</a></li>
+                                        <li><a href="#">Bookings</a></li>
+                                        <li><a href="@Url.Action("Logout","Login")">Log out</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th> <!-- Add a new column for the action buttons -->
+        </tr>
+        </thead>
+        <tbody>
+@if (Model != null && Model.Any())
+{
+        foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>@user.Role.ToString()</td>
+                <td>
+                    @if (user.Role == URole.User)
+                    {
+                    <form action="@Url.Action("DeleteUser", "Admin")" method="post">
+                        @Html.Hidden("username", user.Username) 
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+
+                    }
+                </td>
+            </tr>
+        }
+}
+        </tbody>
+    </table>
+</body>
+</html>
